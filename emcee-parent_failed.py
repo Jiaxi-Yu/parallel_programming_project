@@ -25,8 +25,7 @@ def chi2(par):
     a, b=par
     model = a*x+b
     error = 1.
-
-        
+   
     # Spawn maxproc children processes which 
     # exists in the file 'chi2-child.py'
     comm = MPI.COMM_SELF.Spawn(sys.executable,
