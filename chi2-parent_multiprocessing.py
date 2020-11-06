@@ -31,7 +31,7 @@ def noises(uniform):
         sigma_high*sqrt(-2*log(uniform[:half]))*sin(2*pi*uniform[half:]))
     return noise
 
-# the reduced chi2 calculation
+# chi2 calculation
 def chi2(par):   
     # get the model parameters
     a, b=par
@@ -46,7 +46,7 @@ def chi2(par):
     # generate the 'observed' data y_mean    
     y_mean = 2*x+3+np.mean(noise_list,axis=0)
 
-    return ((y_mean-model)**2/error**2).mean()
+    return ((y_mean-model)**2/error**2).sum()
 
 # prior for a in [1,3], b in [2,5]
 def lnprior(par):

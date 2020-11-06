@@ -19,7 +19,7 @@ size=comm.size
 x = np.linspace(0., 101., 80000000)
 maxproc = 30
 
-# the reduced chi2 calculation
+# chi2 calculation
 def chi2(par):  
     # get the model parameters  
     a, b=par
@@ -47,7 +47,7 @@ def chi2(par):
 
     comm.Disconnect()
 
-    return ((y_mean-model)**2/error**2).mean()
+    return ((y_mean-model)**2/error**2).sum()
 
 # prior for a in [1,3], b in [2,5]
 def lnprior(par):
